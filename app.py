@@ -25,7 +25,7 @@ def feed():
     return render_template('feed.html')
 
 @app.route('/result', methods=['POST'])
-def result():
+def predict():
     if 'image' not in request.files:
         return "Error: No image file uploaded"
 
@@ -34,19 +34,19 @@ def result():
     if file.filename == '':
         return "Error: No selected file"
 
-    # โหลดภาพจากไฟล์อัปโหลด โดยใช้ stream เพื่อแปลงเป็น BytesIO
-    img = load_img(BytesIO(file.read()), target_size=(400, 400))  # ปรับขนาดภาพให้ตรงกับขนาดที่โมเดลต้องการ
+    img = load_img(BytesIO(file.read()), target_size=(400, 400))
     x = img_to_array(img)
-    x = np.expand_dims(x, axis=0)  # เพิ่ม dimension ให้ตรงกับ input ของโมเดล
-    x = x / 255.0  # Normalization
+    x = np.expand_dims(x, axis=0)
+    x = x / 255.0
 
     # ทำนายผลลัพธ์
     predictions = model.predict(x)
     predicted_class = np.argmax(predictions)
-    confidence = np.max(predictions) * 100  # ค่าความมั่นใจ
+    confidence = np.max(predictions) * 100  # คำนวณค่าความมั่นใจ
 
-    result_label = class_labels[predicted_class]
+    result_label = class_labels[predicted_class]  # รับ label จาก class_labels
 
+    # ส่งค่าผลลัพธ์ไปยัง result.html
     return render_template('result.html', prediction=result_label, confidence=confidence)
 
 if __name__ == '__main__':
