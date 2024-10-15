@@ -24,7 +24,7 @@ def upload():
 def feed():
     return render_template('feed.html')
 
-@app.route('/predict', methods=['POST'])
+@app.route('/result.html', methods=['POST'])
 def predict():
     if 'image' not in request.files:
         return "Error: No image file uploaded"
