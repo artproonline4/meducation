@@ -112,17 +112,14 @@
             <h2>Your X-ray Result</h2>
             <div class="xray-result">
                 <img id="xrayImage" alt="X-ray Result" />
+            </div>
+        
         </div>
-               {% for predictions in class_labels %}
-        <div class="description">    
-               Predicted Class: {{ prediction.class_labels }}
-        </div>
-                {% endif %}
-                {% for confidence in class_labels %}
         <div class="description">
-                Confidence: {{ confidence.class_labels }}%
+            Predicted Class: {{ prediction }}
         </div>
-                {% endif %}
+        <div class="description">
+            Confidence: {{ confidence }}%
         </div>
 
         </div>
