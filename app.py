@@ -12,15 +12,15 @@ model = tf.keras.models.load_model('C:/Users/user/Desktop/MEDUCATION/final_model
 # คำอธิบายของคลาสที่โมเดลทำนายได้
 class_labels = ['COVID19', 'NORMAL', 'PNEUMONIA', 'TB']
 
-@app.route('templates/')
+@app.route('/')
 def web():
     return render_template('web.html')
 
-@app.route('templates/upload')
+@app.route('/upload')
 def upload():
     return render_template('Upload.html')
 
-@app.route('templates/feed')
+@app.route('/feed')
 def feed():
     return render_template('feed.html')
 
