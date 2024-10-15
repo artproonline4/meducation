@@ -34,19 +34,18 @@ def predict():
     if file.filename == '':
         return "Error: No selected file"
 
-    # โหลดภาพจากไฟล์อัปโหลด โดยใช้ stream เพื่อแปลงเป็น BytesIO
-    img = load_img(BytesIO(file.read()), target_size=(400, 400))  # ปรับขนาดภาพให้ตรงกับขนาดที่โมเดลต้องการ
+    img = load_img(BytesIO(file.read()), target_size=(400, 400))
     x = img_to_array(img)
-    x = np.expand_dims(x, axis=0)  # เพิ่ม dimension ให้ตรงกับ input ของโมเดล
-    x = x / 255.0  # Normalization
+    x = np.expand_dims(x, axis=0)
+    x = x / 255.0
 
-    # ทำนายผลลัพธ์
     predictions = model.predict(x)
     predicted_class = np.argmax(predictions)
-    confidence = np.max(predictions) * 100  # ค่าความมั่นใจ
+    confidence = np.max(predictions) * 100
 
     result_label = class_labels[predicted_class]
 
+    # ส่งค่าผลลัพธ์ไปยัง result.html
     return render_template('result.html', prediction=result_label, confidence=confidence)
 
 if __name__ == '__main__':
