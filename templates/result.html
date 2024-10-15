@@ -115,12 +115,12 @@
         </div>
                {% for predictions in class_labels %}
         <div class="description">    
-               Predicted Class: {{ prediction }}
+               Predicted Class: {{ prediction.class_labels }}
         </div>
                 {% endif %}
                 {% for confidence in class_labels %}
         <div class="description">
-                Confidence: {{ confidence }}%
+                Confidence: {{ confidence.class_labels }}%
         </div>
                 {% endif %}
         </div>
