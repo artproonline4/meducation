@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -115,13 +114,10 @@
                 <img id="xrayImage" alt="X-ray Result" />
             </div>
             <div class="description">
-                
+                Predicted Class: {{ prediction }} <!-- แสดงผลการทำนาย -->
             </div>
             <div class="description">
-                Predicted Class: {{ prediction}}
-            </div>
-            <div class="description">
-                Confidence: {{ confidence}}%
+                Confidence: {{ confidence }}% <!-- แสดงความมั่นใจ -->
             </div>
         </div>
     </div>
@@ -144,5 +140,4 @@
     </script>
 
 </body>
-
 </html>
