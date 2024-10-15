@@ -12,19 +12,19 @@ model = tf.keras.models.load_model('C:/Users/user/Desktop/MEDUCATION/final_model
 # คำอธิบายของคลาสที่โมเดลทำนายได้
 class_labels = ['COVID19', 'NORMAL', 'PNEUMONIA', 'TB']
 
-@app.route('/')
+@app.route('templates/')
 def web():
     return render_template('web.html')
 
-@app.route('/upload')
+@app.route('templates/upload')
 def upload():
     return render_template('Upload.html')
 
-@app.route('/feed')
+@app.route('templates/feed')
 def feed():
     return render_template('feed.html')
 
-@app.route('/result', methods=['POST'])
+@app.route('templates/result', methods=['POST'])
 def predict():
     if 'image' not in request.files:
         return "Error: No image file uploaded"
@@ -46,7 +46,7 @@ def predict():
     result_label = class_labels[predicted_class]
 
     # ส่งค่าผลลัพธ์ไปยัง result.html
-    return render_template('result.html', prediction=result_label, confidence=confidence)
+    return render_template('templates/result.html', prediction=result_label, confidence=confidence)
 
 if __name__ == '__main__':
     app.run(debug=True)
