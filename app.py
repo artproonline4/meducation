@@ -42,9 +42,9 @@ def predict():
     # ทำนายผลลัพธ์
     predictions = model.predict(x)
     predicted_class = np.argmax(predictions)
-    confidence = np.max(predictions) * 100  # คำนวณค่าความมั่นใจ
+    confidence = np.max(predictions) * 100 
 
-    result_label = class_labels[predicted_class]  # รับ label จาก class_labels
+    result_label = class_labels[predicted_class]
 
     # ส่งค่าผลลัพธ์ไปยัง result.html
     return render_template('result.html', prediction=result_label, confidence=confidence)
