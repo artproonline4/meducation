@@ -89,15 +89,12 @@
     </div>
 
     <script>
-        function goBack() {
-            window.history.back();
-        }
         function goToFeed() {
-            window.location.href = "{{url_for('feed')}}"; // เปลี่ยนเส้นทางไปยังหน้า feed
+            window.location.href = "feed.html"; // เปลี่ยนเส้นทางไปยังหน้า feed.html
         }
 
         function goToUpload() {
-            window.location.href = "{{url_for('upload')}}"; // เปลี่ยนเส้นทางไปยังหน้า upload
+            window.location.href = "upload.html"; // เปลี่ยนเส้นทางไปยังหน้า upload.html
         }
     </script>
 </body>
