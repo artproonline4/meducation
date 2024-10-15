@@ -7,7 +7,7 @@ from io import BytesIO
 app = Flask(__name__)
 
 # โหลดโมเดลของคุณ
-model = tf.keras.models.load_model('C:/Users/user/Desktop/MEDUCATION/final_model.h5')
+model = tf.keras.models.load_model('final_model/final_model.h5')
 
 # คำอธิบายของคลาสที่โมเดลทำนายได้
 class_labels = ['COVID19', 'NORMAL', 'PNEUMONIA', 'TB']
