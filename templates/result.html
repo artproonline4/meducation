@@ -113,11 +113,16 @@
             <div class="xray-result">
                 <img id="xrayImage" alt="X-ray Result" />
         </div>
-        <div class="description">
+               {% for predictions in class_labels %}
+        <div class="description">    
                Predicted Class: {{ prediction }}
         </div>
+                {% endif %}
+                {% for confidence in class_labels %}
         <div class="description">
                 Confidence: {{ confidence }}%
+        </div>
+                {% endif %}
         </div>
 
         </div>
